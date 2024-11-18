@@ -22,42 +22,47 @@ const SelectPay = () => {
               Saldo actual es : S/ 15.00
             </h2>
             <div className="bg-green-700 rounded-full px-4 py-2 cursor-pointer">
-              <h2 className="font-bold text-[1.3rem] text-white">
+              <h2 className="font-semibold text-[1.3rem] text-black">
                 Imprimir Saldo
               </h2>
             </div>
           </div>
         </div>
         {/* seleccione el monto */}
-        <div className="bg-[#a15e69] text-center">
-          <h1 className="text-2xl font-bold mb-6 text-white">
+        <div className="bg-[#a15e69] ">
+          <h1 className="text-3xl font-bold mb-6 p-4 text-white max-w-[650px] mx-auto">
             Seleccione el monto a cargar
           </h1>
-          <div className="grid grid-cols-2 gap-4 mb-8 max-w-[800px] mx-auto">
-            <button className="bg-[#76c36b] text-black py-3 rounded-full text-lg font-bold shadow-md">
-              S/ 5
-            </button>
-            <button className="bg-[#76c36b] text-black py-3 rounded-full text-lg font-bold shadow-md">
-              S/ 10
-            </button>
-            <button className="bg-[#76c36b] text-black py-3 rounded-full text-lg font-bold shadow-md">
-              S/ 20
-            </button>
-            <button className="bg-[#76c36b] text-black py-3 rounded-full text-lg font-bold shadow-md">
-              S/ 50
-            </button>
+          <div className="flex items-center  mb-8 max-w-[600px] mx-auto">
+            <div className="">
+              <button className="bg-[#75D22F] text-black py-2 rounded-full text-lg font-bold shadow-md w-[180px] my-5 border-4 border-white">
+                S/ 5
+              </button>
+              <button className="bg-[#75D22F] text-black py-2 rounded-full text-lg font-bold shadow-md w-[180px]  border-4 border-white">
+                S/ 20
+              </button>
+            </div>
+            <div className="">
+              <button className="bg-[#75D22F] text-black py-2 rounded-full text-lg font-bold shadow-md w-[180px] my-5 border-4 border-white">
+                S/ 10
+              </button>
+              <button className="bg-[#75D22F] text-black py-2 rounded-full text-lg font-bold shadow-md w-[180px] border-4 border-white">
+                S/ 50
+              </button>
+            </div>
+            <div className="h-[100px]">
+              <button className="bg-[#75D22F] text-black  py-1 rounded-3xl text-xl font-bold shadow-md col-span-2 h-full border-4 border-white">
+                OTRO MONTO
+              </button>
+            </div>
           </div>
-          <div>
-            <button className="bg-[#9bcf8b] text-black px-8 py-3 rounded-full text-lg font-bold shadow-md">
-              OTRO MONTO
-            </button>
-          </div>
-          <div className="mt-8">
+          <div className="flex justify-end	max-w-[800px] mx-auto mt-8">
             <button className="bg-[#d14646] text-white px-6 py-2 rounded-full text-lg font-bold shadow-md">
               Cancelar
             </button>
           </div>
         </div>
+
         {/* footer imagenes y indra */}
         <div className=" bg-[#792c26]  ">
           <div className="max-w-[800px] mx-auto flex justify-between items-center p-4 ">
