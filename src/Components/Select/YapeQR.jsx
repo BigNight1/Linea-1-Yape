@@ -1,29 +1,21 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import QRCode from "qrcode"; // Importa la librería qrcode
-import { useEffect } from "react";
+import MetroyHora from "./MetroyHora.jsx";
 
 const YapePage = () => {
   const location = useLocation();
+  const saldo = location.state?.saldo || 0; // Obtener saldo del estado o establecer valor predeterminado
   const navigate = useNavigate();
-  const saldo = location.state?.saldo || 0; // Obtén el saldo desde el estado
-
-  // Generar el código QR cuando el componente se monte
-  useEffect(() => {
-    const qrData = `Pago por Yape - Monto: S/ ${saldo.toFixed(2)}`;
-    QRCode.toDataURL(qrData, { width: 200 })
-      .then((url) => setQrCodeUrl(url))
-      .catch((err) => console.error("Error al generar QR:", err));
-  }, [saldo]);
 
   return (
-    <div className="h-[100vh] flex flex-col items-ceXnter justify-center bg-gray-100">
+    <div className="h-[100vh] flex flex-col items-center justify-center bg-gray-100">
+      <MetroyHora/>
       <h1 className="text-3xl font-bold mb-4 text-center">Paga con Yape</h1>
       <p className="text-lg mb-6">
         Escanea el código QR para pagar S/ {saldo.toFixed(2)}.
       </p>
       {/* Código QR */}
-      <QRCode value={qrData} size={200} />
+      <img src="/img/qr-code.webp" alt="" width={200}/>
 
       {/* Botón para regresar */}
       <button

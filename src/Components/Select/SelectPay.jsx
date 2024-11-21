@@ -45,7 +45,7 @@ const SelectPay = () => {
         </section>
 
         {/* Selección del monto */}
-        <section className={`bg-[${colors.montoBg}] py-8`}>
+        <section className="bg-[#a15e69] py-8">
           <h1 className="text-3xl font-bold p-4 text-white text-center max-w-[650px] mx-auto">
             Seleccione el monto a cargar
           </h1>
@@ -54,16 +54,16 @@ const SelectPay = () => {
             {/* Botones para seleccionar montos */}
             {[5, 10, 20, 50].map((monto, index) => (
               <button
-              key={index}
-              className={`bg-[${colors.botonBg}] text-black ${buttonClass}`}
-              onClick={() => handleSelectMonto(monto)} // Redirigir con el monto seleccionado
-              aria-label={`Seleccionar S/ ${monto}`}
-            >
-              S/ {monto}
-            </button>
+                key={index}
+                className={`bg-[#75D22F] text-black ${buttonClass}`}
+                onClick={() => handleSelectMonto(monto)} // Redirigir con el monto seleccionado
+                aria-label={`Seleccionar S/ ${monto}`}
+              >
+                S/ {monto}
+              </button>
             ))}
             <button
-              className={`col-span-2 bg-[${colors.botonBg}] py-3 rounded-3xl text-xl font-bold shadow-md`}
+              className="col-span-2 bg-[#75D22F] py-3 rounded-3xl text-xl font-bold shadow-md"
               aria-label="Seleccionar otro monto"
             >
               OTRO MONTO
