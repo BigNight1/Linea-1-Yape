@@ -1,6 +1,4 @@
 import React from "react";
-import MetroyHora from "../MetroyHora.jsx";
-import Logos from "../Logos.jsx";
 import { useLocation, useNavigate } from "react-router-dom"; // Importar useLocation
 
 const EfecandYape = () => {
@@ -11,7 +9,7 @@ const EfecandYape = () => {
   const handleYape = () => {
     // Navegar a /yapeqr con el saldo como estado
     navigate("/yapeqr", { state: { saldo, qrData: "datos_del_qr" } });
-};
+  };
 
   const BackSelect = () => {
     navigate("/");
@@ -27,9 +25,6 @@ const EfecandYape = () => {
 
   return (
     <>
-      {/* Metro Lima y Hora */}
-      <MetroyHora />
-
       {/* Saldo Puesto */}
       <div className={`Saldo bg-[${colors.saldoBg}]`}>
         <div className="max-w-[600px] mx-auto flex items-center justify-center px-4 py-3">
@@ -71,9 +66,6 @@ const EfecandYape = () => {
           </div>
         </div>
       </div>
-
-      {/* Logos */}
-      <Logos />
     </>
   );
 };

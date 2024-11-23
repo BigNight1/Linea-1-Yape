@@ -1,6 +1,5 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import MetroyHora from "./MetroyHora.jsx";
 
 const YapePage = () => {
   const location = useLocation();
@@ -9,7 +8,6 @@ const YapePage = () => {
 
   return (
     <div className="h-[100vh] flex flex-col items-center justify-center bg-gray-100">
-      <MetroyHora/>
       <h1 className="text-3xl font-bold mb-4 text-center">Paga con Yape</h1>
       <p className="text-lg mb-6">
         Escanea el código QR para pagar S/ {saldo.toFixed(2)}.

@@ -1,17 +1,14 @@
-import React from "react";
-import MetroyHora from "./MetroyHora.jsx";
-import Logos from "./Logos.jsx";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 const SelectPay = () => {
   const [saldo, setSaldo] = useState(0); // Estado para el saldo seleccionado
   const navigate = useNavigate(); // Hook para navegar entre rutas
 
   const handleSelectMonto = (monto) => {
-    // Navega a /formapago con el monto seleccionado
-    navigate("/formapago", { state: { saldo: monto } });
+    navigate("/formapago", { state: { saldo: monto } }); // Navega con el monto seleccionado
   };
+
   const colors = {
     saldoBg: "#792c26",
     montoBg: "#a15e69",
@@ -19,16 +16,13 @@ const SelectPay = () => {
     cancelarBg: "#d14646",
   };
 
-  const buttonClass = `py-2 rounded-full text-lg font-bold shadow-md border-4 border-white`;
+  const commonButtonClass = "py-3 rounded-3xl text-xl font-bold shadow-md";
 
   return (
-    <div className="h-[100vh] flex flex-col bg-gray-100">
-      {/* Metro Lima y Hora */}
-      <MetroyHora />
-
+    <div className=" flex flex-col bg-gray-100">
       <main className="flex-grow w-full">
         {/* Saldo actual */}
-        <section className={`Saldo bg-[${colors.saldoBg}] py-3`}>
+        <section style={{ backgroundColor: colors.saldoBg }} className="py-3">
           <div className="max-w-[600px] mx-auto flex items-center justify-between px-4">
             <h2 className="text-white font-semibold text-[1.5rem]">
               Saldo actual: S/ 15.00
@@ -45,49 +39,49 @@ const SelectPay = () => {
         </section>
 
         {/* Selección del monto */}
-        <section className="bg-[#a15e69] py-8">
-          <h1 className="text-3xl font-bold p-4 text-white text-center max-w-[650px] mx-auto">
-            Seleccione el monto a cargar
-          </h1>
+        <section
+          style={{ backgroundColor: colors.montoBg }}
+          className=" flex flex-col justify-center items-center"
+        >
+          <div className="text-center">
+            <h1 className="text-3xl font-bold p-4 text-white max-w-[650px] mx-auto">
+              Seleccione el monto a cargar
+            </h1>
 
-          <div className="grid grid-cols-2 gap-4 max-w-[600px] mx-auto">
-            {/* Botones para seleccionar montos */}
-            {[5, 10, 20, 50].map((monto, index) => (
+            <div className="grid grid-cols-2 gap-4 max-w-[600px] mx-auto">
+              {[5, 10, 20, 50].map((monto, index) => (
+                <button
+                  key={index}
+                  className={`bg-[#75D22F] text-black ${commonButtonClass}`}
+                  onClick={() => handleSelectMonto(monto)}
+                >
+                  S/ {monto}
+                </button>
+              ))}
               <button
-                key={index}
-                className={`bg-[#75D22F] text-black ${buttonClass}`}
-                onClick={() => handleSelectMonto(monto)} // Redirigir con el monto seleccionado
-                aria-label={`Seleccionar S/ ${monto}`}
+                className={`col-span-2 bg-[#75D22F] ${commonButtonClass}`}
               >
-                S/ {monto}
+                OTRO MONTO
               </button>
-            ))}
-            <button
-              className="col-span-2 bg-[#75D22F] py-3 rounded-3xl text-xl font-bold shadow-md"
-              aria-label="Seleccionar otro monto"
-            >
-              OTRO MONTO
-            </button>
+            </div>
           </div>
 
           {/* Botón cancelar */}
-          <div className="flex justify-end max-w-[800px] mx-auto mt-8">
+          <div className="flex justify-end max-w-[800px] w-full mt-8">
             <button
-              className={`bg-[${colors.cancelarBg}] text-white px-6 py-2 rounded-full text-lg font-bold shadow-md`}
-              aria-label="Cancelar operación"
+              style={{ backgroundColor: colors.cancelarBg }}
+              className="text-white px-6 py-2 rounded-full text-lg font-bold shadow-md"
             >
               Cancelar
             </button>
           </div>
         </section>
       </main>
-
-      {/* Footer con logos */}
-      <footer>
-        <Logos />
-      </footer>
     </div>
   );
 };
 
 export default SelectPay;
+
+ 
+
